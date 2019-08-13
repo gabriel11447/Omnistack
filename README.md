@@ -7,4 +7,8 @@
 
 [Rocket-Seat](https://rocketseat.com.br)
 
+<<<<<<< HEAD
 [Diego](https://github.com/diego3g)
+=======
+[Diego](https://github.com/diego3g)
+>>>>>>> 472b269d522ddb073cc00800d18c4cc46986e513
