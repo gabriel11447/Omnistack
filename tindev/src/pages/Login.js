@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { KeyboardAvoidingView, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+
+import api from '../services/api';
 
 import logo from '../assets/logo.png';
 
 export default function Login({ navigation }) {
-    function handleLogin() {
-        navigation.navigate('Main');
+    const [user, setUser] = useState('');
+    async function handleLogin() {
+        const response = await api.post('/devs', { username: user });
+
+        const { _id } = response.data;
+        console.log(_id);
+
+        navigation.navigate('Main', { _id });
     }
     return (
         <KeyboardAvoidingView 
             behavior="padding"
             enabled={Platform.OS == 'ios'}
-            styles={styles.container}
+            style={styles.container}
         >
             <Image source={logo} />
             <TextInput 
@@ -20,6 +28,8 @@ export default function Login({ navigation }) {
                 placeholder="Digite seu usuário do GitHub"
                 placeholderTextColor="#999"
                 style={styles.input}
+                value={user}
+                onChangeText={setUser}
             />
 
             <TouchableOpacity onPress={handleLogin} style={styles.button}>
