@@ -15,6 +15,7 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "tindev";
     }
+
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {
     return new ReactActivityDelegate(this, getMainComponentName()) {
