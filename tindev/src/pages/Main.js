@@ -99,7 +99,7 @@ export default function Main({ navigation }) {
       ) }
 
       { matchDev && (
-        <View style={styles.matchContainer}>
+        <View style={[styles.matchContainer, {zIndex: users.length}]}>
           <Image style={styles.matchImage} source={itsamatch} />
           <Image style={styles.matchAvatar} source={{ uri: matchDev.avatar }} />
 
@@ -181,9 +181,11 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: 'row',
     marginBottom: 30,
+    zIndex: 1
   },
 
   button: {
+    zIndex: 1,
     width: 50,
     height: 50,
     borderRadius: 25,
